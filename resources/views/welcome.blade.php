@@ -13,7 +13,7 @@
 
 
     <h1>Welcome to kodeeo limited</h1>
-    <a class="btn btn-success" href="{{url('/about')}}">Click to show About Us</a>
+    <a class="btn btn-success" href="{{url('/about')}}">Go to About Us</a>
 
 
     </body>
