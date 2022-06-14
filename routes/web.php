@@ -24,5 +24,5 @@ use App\Http\Controllers\DashboardController;
 // });
 
 Route::get('/',[DashboardController::class,'index'])->name('dashboard');
-
+Route::get('/dashboard',[DashboardController::class,'viewDashboard'])->name('dashboard');
 Route::get('/about',[AboutUsController::class,'index'])->name('about');
