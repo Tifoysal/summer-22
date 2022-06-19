@@ -1,9 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +25,6 @@ use App\Http\Controllers\DashboardController;
 Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 Route::get('/dashboard',[DashboardController::class,'viewDashboard'])->name('dashboard');
 Route::get('/about',[AboutUsController::class,'index'])->name('about');
+
+Route::get('/product-list',[ProductController::class,'list'])->name('product.list');
+
