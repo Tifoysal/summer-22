@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Backend\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +28,5 @@ Route::get('/dashboard',[DashboardController::class,'viewDashboard'])->name('das
 Route::get('/about',[AboutUsController::class,'index'])->name('about');
 
 Route::get('/product-list',[ProductController::class,'list'])->name('product.list');
+Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
 
