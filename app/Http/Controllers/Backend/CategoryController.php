@@ -24,6 +24,7 @@ class CategoryController extends Controller
             'name'=> $request->name,
             'description' =>$request->description,
         ]);
-        return view('backend.pages.category-list');
+        $category =Category::all();
+        return view('backend.pages.category-list',compact('category'));
     }
 }
