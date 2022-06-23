@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CategoryController;
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +26,13 @@ use App\Http\Controllers\Backend\CategoryController;
 Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 Route::get('/dashboard',[DashboardController::class,'viewDashboard'])->name('dashboard');
 Route::get('/about',[AboutUsController::class,'index'])->name('about');
-
-Route::get('/product-list',[ProductController::class,'list'])->name('product.list');
 Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category/form',[CategoryController::class,'form'])->name('category.form');
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.created');
 
+
+
+//  product operation
+Route::get('/product/view',[ProductController::class,'view'])->name('view.product');
+Route::get('/product/form',[ProductController::class,'form'])->name('form.product');
+Route::post('/product/store',[ProductController::class,'store'])->name('store.product');
