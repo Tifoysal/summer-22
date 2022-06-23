@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function view(){
-        return view('backend.pages.products');
+        $product = Product::all();
+        // dd($product);
+        return view('backend.pages.products',compact('product'));
     }
     public function form(){
         return view('backend.pages.product.form');
@@ -24,6 +26,6 @@ class ProductController extends Controller
             'product_weight'=>$request->product_weight,
             'product_desc'=>$request->product_desc,
         ]);
-        return redirect()->back();
+        return redirect()->route('view.product');
     }
 }
