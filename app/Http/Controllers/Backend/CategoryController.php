@@ -10,7 +10,21 @@ class CategoryController extends Controller
 {
     public function list()
     {
-        return view('backend.pages.category-list');
+        $category =Category::all();
+        // dd($data);
+        return view('backend.pages.category-list',compact('category'));
+    }
+    public function form(){
+        return view('backend.pages.categoryCreate');
+    }
+    public function store(Request $request){
+        // dd($request->all());
+        Category::create([
+            // column name => blade input field name
+            'name'=> $request->name,
+            'description' =>$request->description,
+        ]);
+        return redirect()->route('category.list');
     }
 
     public function create()
@@ -18,16 +32,4 @@ class CategoryController extends Controller
         return view('backend.pages.category-create');
     }
 
-    public function store(Request $request)
-    {
-
-//        dd($request->all());
-        Category::create([
-            'name'=>$request->category_name,
-            'description'=>$request->description
-        ]);
-
-        return redirect()->back();
-
-    }
 }

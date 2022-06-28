@@ -9,7 +9,7 @@
                 </a>
                 <div class="sb-sidenav-menu-heading">Interface</div>
 
-                <a class="nav-link" href="{{route('product.list')}}">Products</a>
+                <a class="nav-link" href="{{route('view.product')}}">Products</a>
                 <a class="nav-link" href="{{route('category.list')}}">Categories</a>
 
             </div>
