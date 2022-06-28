@@ -3,6 +3,8 @@
 @section('backend_content')
 <h1>Category List</h1>
 
+
+<a href="{{route('category.create')}}" class="btn btn-success">Create Category</a>
 <table class="table table-striped">
     <thead>
     <tr>
