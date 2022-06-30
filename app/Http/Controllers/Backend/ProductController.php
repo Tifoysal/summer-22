@@ -3,29 +3,38 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function view(){
-        $product = Product::all();
-        // dd($product);
-        return view('backend.pages.products',compact('product'));
+    public function list(){
+
+        $products=Product::paginate(5);
+        return view('backend.pages.products',compact('products'));
     }
-    public function form(){
-        return view('backend.pages.product.form');
+
+
+    public function form()
+    {
+        $categories=Category::all();
+//        dd($categories);
+        return view('backend.pages.product.form',compact('categories'));
     }
+
+
+
     public function store(Request $request){
-        // dd($request->all());
+
         Product::create([
-            // migration table name => input fielf name
-            'product_name'=>$request->product_name,
-            'product_price'=>$request->product_price,
-            'product_qty'=>$request->product_qty,
-            'product_weight'=>$request->product_weight,
-            'product_desc'=>$request->product_desc,
+            // migration table -column name => input field name
+            'name'=>$request->product_name,
+            'category_id'=>$request->category,
+            'price'=>$request->product_price,
+            'quantity'=>$request->product_qty,
+            'description'=>$request->product_desc,
         ]);
-        return redirect()->route('view.product');
+        return redirect()->route('product.list');
     }
 }

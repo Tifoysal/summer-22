@@ -26,13 +26,14 @@ use App\Http\Controllers\Backend\CategoryController;
 Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 Route::get('/dashboard',[DashboardController::class,'viewDashboard'])->name('dashboard');
 Route::get('/about',[AboutUsController::class,'index'])->name('about');
+
+
 Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
-
-
-
 Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
+
+
 //  product operation
-Route::get('/product/view',[ProductController::class,'view'])->name('view.product');
+Route::get('/products',[ProductController::class,'list'])->name('product.list');
 Route::get('/product/form',[ProductController::class,'form'])->name('form.product');
 Route::post('/product/store',[ProductController::class,'store'])->name('store.product');

@@ -10,18 +10,15 @@ class CategoryController extends Controller
 {
     public function list()
     {
-        $category =Category::all();
-        // dd($data);
-        return view('backend.pages.category-list',compact('category'));
+       $category_data=Category::paginate(10);
+        return view('backend.pages.category-list',compact('category_data'));
     }
-    public function form(){
-        return view('backend.pages.categoryCreate');
-    }
+
     public function store(Request $request){
-        // dd($request->all());
+//         dd($request->all());
         Category::create([
             // column name => blade input field name
-            'name'=> $request->name,
+            'name'=> $request->category_name,
             'description' =>$request->description,
         ]);
         return redirect()->route('category.list');
