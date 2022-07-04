@@ -20,9 +20,9 @@
     <tbody>
 @foreach($products as $data)
         <tr>
-            <td scope="col">1</td>
+            <td scope="col">{{$data->id}}</td>
             <td scope="col">{{$data->name}}</td>
-            <td scope="col">{{$data->category_id}}</td>
+            <td scope="col">{{$data->category->name}}</td>
             <td scope="col">{{$data->price}}</td>
             <td scope="col">{{$data->quantity}}</td>
             <td scope="col">
@@ -33,4 +33,5 @@
         @endforeach
     </tbody>
 </table>
+    {{$products->links()}}
 @endsection

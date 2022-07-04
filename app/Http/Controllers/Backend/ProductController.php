@@ -11,7 +11,8 @@ class ProductController extends Controller
 {
     public function list(){
 
-        $products=Product::paginate(5);
+        $products=Product::with('category')->OrderBy('id','desc')->paginate(5);
+//        dd($products);
         return view('backend.pages.products',compact('products'));
     }
 
@@ -27,6 +28,13 @@ class ProductController extends Controller
 
     public function store(Request $request){
 
+       $request->validate([
+           'product_name'=>'required',
+           'product_price'=>'required|numeric|min:1|max:10',
+           'product_qty'=>'required|integer',
+           'category'=>'required|integer',
+       ]);
+
         Product::create([
             // migration table -column name => input field name
             'name'=>$request->product_name,
@@ -35,6 +43,8 @@ class ProductController extends Controller
             'quantity'=>$request->product_qty,
             'description'=>$request->product_desc,
         ]);
+
+
         return redirect()->route('product.list');
     }
 }
