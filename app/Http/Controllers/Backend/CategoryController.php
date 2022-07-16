@@ -29,4 +29,20 @@ class CategoryController extends Controller
         return view('backend.pages.category-create');
     }
 
+    public function delete($id)
+    {
+        $category=Category::find($id);
+        $category->delete();
+
+        return redirect()->back();
+
+//        Category::where('id',$id)->first();
+    }
+
+    public function view($id)
+    {
+        $category=Category::find($id);
+        return view('backend.pages.category.view',compact('category'));
+    }
+
 }

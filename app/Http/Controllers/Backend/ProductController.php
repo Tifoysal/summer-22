@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function list(){
-
         $products=Product::with('category')->OrderBy('id','desc')->paginate(5);
 //        dd($products);
         return view('backend.pages.products',compact('products'));

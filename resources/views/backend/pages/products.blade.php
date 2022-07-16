@@ -18,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach($products as $data)
+       @foreach($products as $data)
         <tr>
             <td scope="col">{{$data->id}}</td>
             <td scope="col">{{$data->name}}</td>
@@ -28,7 +28,6 @@
             <td scope="col">
                 <a href="">View</a>
             </td>
-
         </tr>
         @endforeach
     </tbody>

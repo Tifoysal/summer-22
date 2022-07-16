@@ -19,14 +19,15 @@
 
 
     @foreach($category_data as $key=>$cat)
+
         <tr>
           <td>{{$key+1}}</td>
           <td>{{$cat->name}}</td>
           <td>{{$cat->description}}</td>
             <td>
                 <a class="btn btn-primary" href="">Edit</a>
-                <a class="btn btn-success" href="">View</a>
-                <a  class="btn btn-danger" href="">Delete</a>
+                <a class="btn btn-success" href="{{route('category.view',$cat->id)}}">View</a>
+                <a  class="btn btn-danger" href="{{route('category.delete',$cat->id)}}">Delete</a>
             </td>
         </tr>
     @endforeach

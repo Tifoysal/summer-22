@@ -31,6 +31,8 @@ Route::get('/about',[AboutUsController::class,'index'])->name('about');
 Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
+Route::get('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+Route::get('/category/view/{id}',[CategoryController::class,'view'])->name('category.view');
 
 
 //  product operation
