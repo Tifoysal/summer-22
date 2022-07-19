@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\DashboardController;
@@ -23,8 +25,8 @@ use App\Http\Controllers\Backend\CategoryController;
 //     return view('about');
 // });
 
-Route::get('/',[DashboardController::class,'index'])->name('dashboard');
-Route::get('/dashboard',[DashboardController::class,'viewDashboard'])->name('dashboard');
+Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/admin',[DashboardController::class,'index'])->name('dashboard');
 Route::get('/about',[AboutUsController::class,'index'])->name('about');
 
 
