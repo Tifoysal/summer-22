@@ -11,6 +11,7 @@
 
                 <a class="nav-link" href="{{route('product.list')}}">Products</a>
                 <a class="nav-link" href="{{route('category.list')}}">Categories</a>
+                <a class="nav-link" href="{{route('customer.list')}}">Customers</a>
 
             </div>
         </div>
