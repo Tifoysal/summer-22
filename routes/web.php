@@ -41,19 +41,25 @@ Route::get('/logout',[FrontendCustomer::class,'logout'])->name('logout');
 
 
 
-Route::get('/admin',[DashboardController::class,'index'])->name('dashboard');
-Route::get('/about',[AboutUsController::class,'index'])->name('about');
+Route::get('/admin/login',[DashboardController::class,'login'])->name('login');
+Route::post('/admin/do-login',[DashboardController::class,'doLogin'])->name('admin.login');
+Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
 
-Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
-Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
-Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
-Route::get('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
-Route::get('/category/view/{id}',[CategoryController::class,'view'])->name('category.view');
+    Route::get('/logout',[DashboardController::class,'logout'])->name('admin.logout');
+    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
+    Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
+    Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
+    Route::get('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+    Route::get('/category/view/{id}',[CategoryController::class,'view'])->name('category.view');
+    Route::get('/category/edit/{category_id}',[CategoryController::class,'edit'])->name('category.edit');
+    Route::post('/category/update/{category_id}',[CategoryController::class,'update'])->name('category.update');
 
 //  product operation
-Route::get('/products',[ProductController::class,'list'])->name('product.list');
-Route::get('/product/form',[ProductController::class,'form'])->name('form.product');
-Route::post('/product/store',[ProductController::class,'store'])->name('store.product');
+    Route::get('/products',[ProductController::class,'list'])->name('product.list');
+    Route::get('/product/form',[ProductController::class,'form'])->name('form.product');
+    Route::post('/product/store',[ProductController::class,'store'])->name('store.product');
 
 //for customers
-Route::get('/customers',[CustomerController::class,'list'])->name('customer.list');
+    Route::get('/customers',[CustomerController::class,'list'])->name('customer.list');
+});
