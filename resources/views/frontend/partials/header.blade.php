@@ -34,13 +34,14 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                Login
                             </button>
+                                <a href="{{route('registration')}}"><i class="fa fa-user"></i> Register</a>
                             @endguest
 
-                                @auth()
+                            @auth()
                                     <a href="{{route('logout')}}"><i class="fa fa-user"></i> Logout</a>| {{auth()->user()->name}}
-                                @endauth
+                            @endauth
 
-                            <a href="{{route('registration')}}"><i class="fa fa-user"></i> Register</a>
+
                         </div>
                     </div>
                 </div>
