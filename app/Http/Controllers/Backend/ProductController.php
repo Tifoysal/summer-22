@@ -34,9 +34,18 @@ class ProductController extends Controller
            'category'=>'required|integer',
        ]);
 
+       if($request->hasFile('image'))
+       {
+            $file=$request->file('image');
+            $fileRename="product_".rand(0,1000000).date('Ymdhis').".".$file->getClientOriginalExtension();
+            $file->storeAs('products',$fileRename);//store image into project
+       }
+
+
         Product::create([
             // migration table -column name => input field name
             'name'=>$request->product_name,
+            'image'=>$fileRename,
             'category_id'=>$request->category,
             'price'=>$request->product_price,
             'quantity'=>$request->product_qty,

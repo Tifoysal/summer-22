@@ -59,11 +59,11 @@
             <div class="categories__slider owl-carousel">
                 @foreach($products as $product)
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80">
+                    <div class="categories__item set-bg" data-setbg="{{url('/uploads/products/').'/'.$product->image}}">
                         <h5><a href="#">{{$product->name}}</a></h5>
                     </div>
                 </div>
-@endforeach
+                @endforeach
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
                         <li data-filter=".oranges">Oranges</li>
                         <li data-filter=".fresh-meat">Fresh Meat</li>
                         <li data-filter=".vegetables">Vegetables</li>
-                        <li data-filter=".fastfood">Fastfood</li>
+                        <li data-filter=".fastfood">Fast food</li>
                     </ul>
                 </div>
             </div>
