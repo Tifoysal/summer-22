@@ -32,7 +32,7 @@ Route::get('/registration',[FrontendCustomer::class,'registration'])->name('regi
 Route::post('/do-registration',[FrontendCustomer::class,'doRegistration'])->name('registration.do');
 Route::post('/do-login',[FrontendCustomer::class,'doLogin'])->name('login.do');
 Route::get('/logout',[FrontendCustomer::class,'logout'])->name('logout');
-
+Route::get('/search',[HomeController::class,'search'])->name('search');
 
 
 
