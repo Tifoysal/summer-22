@@ -35,8 +35,11 @@ Route::get('/logout',[FrontendCustomer::class,'logout'])->name('logout');
 Route::get('/search',[HomeController::class,'search'])->name('search');
 
 
-
-
+//cart
+Route::get('/add-to-cart/{id}',[HomeController::class,'addToCart'])->name('add.to.cart');
+Route::get('/view-cart',[HomeController::class,'viewCart'])->name('cart.view');
+Route::get('/clear-cart',[HomeController::class,'clearCart'])->name('cart.clear');
+Route::get('/all-products',[HomeController::class,'allProducts'])->name('all.products');
 
 
 

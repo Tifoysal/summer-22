@@ -112,10 +112,10 @@
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <div class="col px-0">
-                                        <button class="btn btn-outline-primary btn-block">
+                                        <a href="{{route('add.to.cart',$data->id)}}" class="btn btn-outline-primary btn-block">
                                             Add To Cart
                                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                     <div class="ml-2">
                                         <a href="#" class="btn btn-outline-success" data-toggle="tooltip" data-placement="left"
@@ -133,7 +133,7 @@
             @endif
 
 
-
+{{$products->links()}}
         </div>
     </div>
 
