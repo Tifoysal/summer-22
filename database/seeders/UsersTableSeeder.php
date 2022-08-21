@@ -22,11 +22,11 @@ class UsersTableSeeder extends Seeder
                    'role'=>'admin',
                 ]);
 
-        User::create([
-            'name'=>'user',
-            'email'=>'user@gmail.com',
-            'password'=>bcrypt('12345'),
-            'role'=>'user',
-        ]);
+                User::create([
+                    'name'=>'user',
+                    'email'=>'user@gmail.com',
+                    'password'=>bcrypt('12345'),
+                    'role'=>'user',
+                ]);
     }
 }
